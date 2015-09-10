@@ -13,6 +13,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 import javax.swing.border.EmptyBorder;
 
 /**
@@ -156,6 +157,6 @@ public class Canodromo extends JFrame {
 	}
 	
 	public void winnerDialog(String winner,int total) {
-            JOptionPane.showMessageDialog(null, "El ganador fue:" + reg.getGanador() + " de un total de " + (reg.getUltimaPosicionAlcanzada() - 1));
+            JOptionPane.showMessageDialog(null, "El ganador fue:" + winner + " de un total de " + total);
         }	
 }

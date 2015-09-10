@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 
 public class MainCanodromo {
 
@@ -25,13 +24,13 @@ public class MainCanodromo {
 
                     @Override
                     public void actionPerformed(final ActionEvent e) {
-						//como acción, se crea un nuevo hilo que cree los hilpos
+						//como acción, se crea un nuevo hilo que cree los hilos
                         //'galgos', los pone a correr, y luego muestra los resultados.
                         //La acción del botón se realiza en un hilo aparte para evitar
                         //bloquear la interfaz gráfica.
+                        ((JButton) e.getSource()).setEnabled(false);
                         new Thread() {
                             public void run() {
-                                ((JButton) e.getSource()).setEnabled(false);
                                 for (int i = 0; i < can.getNumCarriles(); i++) {
                                     //crea los hilos 'galgos'
                                     galgos[i] = new Galgo(can.getCarril(i), "" + i, reg);
@@ -40,9 +39,8 @@ public class MainCanodromo {
 
                                 }
                                
-				winnerDialog(reg.getGanador(),reg.getUltimaPosicionAlcanzada() - 1); 
+				can.winnerDialog(reg.getGanador(),reg.getUltimaPosicionAlcanzada() - 1); 
                                 System.out.println("El ganador fue:" + reg.getGanador());
-
                             }
                         }.start();
 
