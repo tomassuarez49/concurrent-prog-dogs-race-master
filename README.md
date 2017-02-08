@@ -2,10 +2,7 @@ Escuela Colombiana de Ingeniería
 
 Arquitecturas de Software – ARSW
 
-Taller – Sincronización de hilos
-
-
-####Ejercicio – programación concurrente, condiciones de carrera y sincronización de hilos. EJERCICIO INDIVIDUAL O EN PAREJAS.
+####Taller – programación concurrente, condiciones de carrera y sincronización de hilos. EJERCICIO INDIVIDUAL O EN PAREJAS.
 
 #####Parte I – Antes de terminar la clase.
 
