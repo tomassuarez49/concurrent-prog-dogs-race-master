@@ -66,9 +66,12 @@ Taller.
 1. Funcionalidad.
 
     1.1. La ejecución de los galgos puede ser detenida y resumida consistentemente.
+    
     1.2. No hay inconsistencias en el orden de llegada registrado.
     
 2. Diseño.   
+
     2.1. Se hace una sincronización de sólo la región crítica (sincronizar, por ejemplo, todo un método, bloquearía más de lo necesario).
+    
     2.2. Los galgos, cuando están suspendidos, son reactivados son sólo un llamado (usando un monitor común).
 
