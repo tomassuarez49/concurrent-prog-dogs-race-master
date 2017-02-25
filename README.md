@@ -59,3 +59,16 @@ Taller.
     cuando se haga clic en ‘Stop’, todos los hilos de los galgos
     deberían dormirse, y cuando se haga clic en ‘Continue’ los mismos
     deberían despertarse y continuar con la carrera. Diseñe una solución que permita hacer esto utilizando los mecanismos de sincronización con las primitivas de los Locks provistos por el lenguaje (wait y notifyAll).
+
+
+## Criterios de evaluación
+
+1. Funcionalidad.
+    1.1. La ejecución de los galgos puede ser detenida y resumida consistentemente.
+    1.2. No hay inconsistencias en el orden de llegada registrado.
+    
+2. Diseño.
+    
+    2.1. Se hace una sincronización de sólo la región crítica (sincronizar, por ejemplo, todo un método, no sería
+    n 2.1. Se des
+4.  Implemente las funcionalidades de pausa y continuar. Con estas,
