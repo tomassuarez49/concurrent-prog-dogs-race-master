@@ -11,6 +11,7 @@ public class Galgo extends Thread {
 	private Carril carril;
 	RegistroLlegada regl;
 
+
 	public Galgo(Carril carril, String name, RegistroLlegada reg) {
 		super(name);
 		this.carril = carril;
@@ -26,6 +27,9 @@ public class Galgo extends Thread {
 			
 			if (paso == carril.size()) {						
 				carril.finish();
+				
+				synchronized (regl) {
+					
 				int ubicacion=regl.getUltimaPosicionAlcanzada();
 				regl.setUltimaPosicionAlcanzada(ubicacion+1);
 				System.out.println("El galgo "+this.getName()+" llego en la posicion "+ubicacion);
@@ -34,6 +38,7 @@ public class Galgo extends Thread {
 				}
 				
 			}
+		}
 		}
 	}
 
