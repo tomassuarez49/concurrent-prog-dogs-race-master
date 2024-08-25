@@ -55,14 +55,18 @@ Taller.
     ![image](https://github.com/user-attachments/assets/5626a6b5-c5d9-42f5-b06e-7588729f66d2)
     ![image](https://github.com/user-attachments/assets/097b1919-67e6-488c-850e-49a6272f83a8)
 
-    Podemos ver en las imagenes anterior que hay varios galgos que llegan en la misma posicion. Esta es una inconsistencia a corregir 
+    Podemos ver en las imagenes anteriores que hay varios galgos que llegan en la misma posicion. Esta es una inconsistencia a corregir 
 
 
 4.  Utilice un mecanismo de sincronización para garantizar que a dichas
     regiones críticas sólo acceda un hilo a la vez. Verifique los
     resultados.
 
-5.  Implemente las funcionalidades de pausa y continuar. Con estas,
+En la imagen podemos ver la region critica la cual permitia que los galgos llegaran en la misma posición. Se corrigió sincronizando la variable "regl"
+
+![image](https://github.com/user-attachments/assets/dc317cfa-db43-4b62-b0a3-390c594f4f04)
+
+6.  Implemente las funcionalidades de pausa y continuar. Con estas,
     cuando se haga clic en ‘Stop’, todos los hilos de los galgos
     deberían dormirse, y cuando se haga clic en ‘Continue’ los mismos
     deberían despertarse y continuar con la carrera. Diseñe una solución que permita hacer esto utilizando los mecanismos de sincronización con las primitivas de los Locks provistos por el lenguaje (wait y notifyAll).
