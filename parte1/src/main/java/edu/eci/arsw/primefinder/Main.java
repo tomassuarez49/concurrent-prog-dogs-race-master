@@ -6,7 +6,7 @@ public class Main {
 		
 		PrimeFinderThread pft = new PrimeFinderThread(0, 30000000);
 		
-		pft.hola();
+		pft.start();
 		
 	}
 	
