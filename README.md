@@ -50,6 +50,8 @@ Taller.
     podrían salir resultados válidos, pero en otros se pueden presentar
     dichas inconsistencias). A partir de esto, identifique las regiones
     críticas () del programa.
+
+    
     ![image](https://github.com/user-attachments/assets/5626a6b5-c5d9-42f5-b06e-7588729f66d2)
     ![image](https://github.com/user-attachments/assets/097b1919-67e6-488c-850e-49a6272f83a8)
 
