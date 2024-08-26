@@ -1,4 +1,4 @@
-package arsw.threads;
+package  arsw.threads;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,18 +34,13 @@ public class MainCanodromo {
                                 for (int i = 0; i < can.getNumCarriles(); i++) {
                                     //crea los hilos 'galgos'
                                     galgos[i] = new Galgo(can.getCarril(i), "" + i, reg);
-                                    //inicia los hilos
-			                        
-                                    
-                                        
+
                                     galgos[i].start();                    
                                 }
 
-                            // Esperar que todos los hilos terminen
                             for (int i = 0; i < can.getNumCarriles(); i++) {
                                 try {
                                    galgos[i].join();
-                                      // Esperar a que el hilo termine
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
