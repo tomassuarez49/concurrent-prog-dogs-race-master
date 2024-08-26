@@ -10,6 +10,7 @@ public class Galgo extends Thread {
 	private int paso;
 	private Carril carril;
 	RegistroLlegada regl;
+	private boolean paused = false; // Estado de pausa
 
 
 	public Galgo(Carril carril, String name, RegistroLlegada reg) {
@@ -19,8 +20,25 @@ public class Galgo extends Thread {
 		this.regl=reg;
 	}
 
+	public synchronized void pause(){
+		paused = true;
+	}
+
+	public synchronized void keepRunning(){
+		paused = false;
+		notifyAll();
+	}
+
+	private synchronized void isPaused() throws InterruptedException{
+		while(paused){
+			wait();
+		}
+	}
+
 	public void corra() throws InterruptedException {
-		while (paso < carril.size()) {			
+		while (paso < carril.size()) {	
+			isPaused();
+
 			Thread.sleep(100);
 			carril.setPasoOn(paso++);
 			carril.displayPasos(paso);
@@ -29,7 +47,6 @@ public class Galgo extends Thread {
 				carril.finish();
 				
 				synchronized (regl) {
-					
 				int ubicacion=regl.getUltimaPosicionAlcanzada();
 				regl.setUltimaPosicionAlcanzada(ubicacion+1);
 				System.out.println("El galgo "+this.getName()+" llego en la posicion "+ubicacion);
@@ -45,8 +62,7 @@ public class Galgo extends Thread {
 
 	@Override
 	public void run() {
-		
-		try {
+		try {		
 			corra();
 		} catch (InterruptedException e) {
 			e.printStackTrace();

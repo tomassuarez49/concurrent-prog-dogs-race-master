@@ -30,18 +30,22 @@ public class MainCanodromo {
                         //bloquear la interfaz gráfica.
                         ((JButton) e.getSource()).setEnabled(false);
                         new Thread() {
-                            public void run() {
+                            public void run() {                                
                                 for (int i = 0; i < can.getNumCarriles(); i++) {
                                     //crea los hilos 'galgos'
                                     galgos[i] = new Galgo(can.getCarril(i), "" + i, reg);
                                     //inicia los hilos
+			                        
+                                    
+                                        
                                     galgos[i].start();                    
                                 }
 
                             // Esperar que todos los hilos terminen
                             for (int i = 0; i < can.getNumCarriles(); i++) {
                                 try {
-                                    galgos[i].join();  // Esperar a que el hilo termine
+                                   galgos[i].join();
+                                      // Esperar a que el hilo termine
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
@@ -59,8 +63,11 @@ public class MainCanodromo {
         can.setStopAction(
                 new ActionListener() {
                     @Override
-                    public void actionPerformed(ActionEvent e) {
+                    public void actionPerformed(ActionEvent e) {            
                         System.out.println("Carrera pausada!");
+                        for(Galgo galgo : galgos){
+                            galgo.pause();
+                        }
                     }
                 }
         );
@@ -68,8 +75,11 @@ public class MainCanodromo {
         can.setContinueAction(
                 new ActionListener() {
                     @Override
-                    public void actionPerformed(ActionEvent e) {
+                    public void actionPerformed(ActionEvent e) {                       
                         System.out.println("Carrera reanudada!");
+                        for(Galgo galgo : galgos){
+                            galgo.keepRunning();
+                        }
                     }
                 }
         );
